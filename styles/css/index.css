@@ -1,20 +1,102 @@
-@font-face {
-  font-family: "Source Sans 3 Regular";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/assets/fonts/SourceSans3-Regular.ttf") format("ttf");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap");
+.gallery-card {
+  width: 301px;
 }
-@font-face {
-  font-family: "Source Sans 3 Bold";
-  font-style: normal;
+
+.gallery-card__title {
+  color: #134880;
+  font-family: "Source Sans 3", sans-serif;
   font-weight: 700;
-  font-display: swap;
-  src: url("/assets/fonts/SourceSans3-Bold.ttf") format("ttf");
+  font-size: 32px;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  margin-bottom: 20px;
 }
+
+.gallery-card__text {
+  color: #484a4c;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+}
+
+.gallery-slider {
+  position: absolute;
+  right: 321px;
+  overflow: hidden;
+}
+
+.gallery-slider__first-row,
+.gallery-slider__second-row,
+.gallery-slider__second-row-images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gallery-slider__first-row {
+  margin-bottom: 10px;
+}
+
+.gallery-slider__second-row {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.gallery-image {
+  border-radius: 5px;
+  margin-left: 10px;
+  height: 200px;
+  width: auto;
+}
+
+.gallery-slider__second-row-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 100px;
+}
+
+.icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.first-wrapper {
+  margin-bottom: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: relative;
 }

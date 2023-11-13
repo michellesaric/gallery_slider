@@ -1,0 +1,22 @@
+.gallery-card {
+  width: 301px;
+}
+
+.gallery-card__title {
+  color: $blue;
+  font-family: $sans;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  margin-bottom: 20px;
+}
+
+.gallery-card__text {
+  color: $gray;
+  font-family: $sans;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+}

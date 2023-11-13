@@ -1,4 +1,3 @@
-@import "./fonts";
 @import "./variables";
 @import "../card";
 @import "../slider";
@@ -7,4 +6,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.gallery {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
 }
