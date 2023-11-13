@@ -10,6 +10,11 @@
   display: flex;
 }
 
+.gallery-slider__first-row.sliding-transition,
+.gallery-slider__second-row-images.sliding-transition {
+  transition: transform 0.5s ease-in-out;
+}
+
 .gallery-slider__first-row {
   margin-bottom: 10px;
 }
