@@ -55,8 +55,8 @@ leftArrow.addEventListener("click", () => {
   currentSecondRowIndex =
     (currentSecondRowIndex - 1 + secondRowTotalImages) % secondRowTotalImages;
 
-  imageWidthFirstRow = firstRowImages[prevFirstRowIndex].clientWidth;
-  imageWidthSecondRow = secondRowImages[prevSecondRowIndex].clientWidth;
+  imageWidthFirstRow = firstRowImages[currentFirstRowIndex].clientWidth;
+  imageWidthSecondRow = secondRowImages[currentSecondRowIndex].clientWidth;
 
   firstRow.style.transform = `translateX(-${imageWidthFirstRow}px)`;
   secondRow.style.transform = `translateX(-${imageWidthSecondRow}px)`;

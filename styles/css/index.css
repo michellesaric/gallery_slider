@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap");
 .gallery-card {
   width: 301px;
+  background: white;
 }
 
 .gallery-card__title {
@@ -69,7 +70,10 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-left: 100px;
+  padding-left: 100px;
+  height: 200px;
+  background-color: white;
+  z-index: 100;
 }
 
 .icon-wrapper {
@@ -86,6 +90,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
+  background-color: white;
+}
+
+.icon-wrapper:hover {
+  border: 2px solid #134880;
 }
 
 .first-wrapper {

@@ -33,17 +33,26 @@
 .gallery-slider__second-row-icons {
   display: flex;
   flex-direction: column;
-  margin-left: 100px;
+  padding-left: 100px;
+  height: 200px;
+  background-color: white;
+  z-index: 100;
 }
 
 .icon-wrapper {
   width: 60px;
   height: 60px;
   border-radius: 5px;
-  border: 1px solid #dddddd;
+  border: 1px solid $lightGray;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  background-color: $white;
+}
+
+.icon-wrapper:hover {
+  border: 2px solid $blue;
 }
 
 .first-wrapper {
