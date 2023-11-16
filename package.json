@@ -1,0 +1,26 @@
+{
+  "name": "gallery_slider",
+  "version": "1.0.0",
+  "description": "Gallery slider for student internship entry",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel utils -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michellesaric/gallery_slider.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michellesaric/gallery_slider/issues"
+  },
+  "homepage": "https://github.com/michellesaric/gallery_slider#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3"
+  }
+}
