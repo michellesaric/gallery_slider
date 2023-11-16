@@ -1,7 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap");
 
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../../assets/fonts/Helvetica\ Neue\ Condensed\ Bold.ttf");
+}
+
 $blue: #134880;
 $gray: #484a4c;
 $white: white;
 $lightGray: #dddddd;
 $sans: "Source Sans 3", sans-serif;
+$helveticaHeue: "Helvetica Neue", monospace;

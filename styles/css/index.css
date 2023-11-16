@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap");
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../../assets/fonts/Helvetica Neue Condensed Bold.ttf");
+}
 .gallery-card {
-  width: 301px;
   background: white;
+  margin-left: 20px;
 }
 
 .gallery-card__title {
+  width: 301px;
   color: #134880;
   font-family: "Source Sans 3", sans-serif;
   font-weight: 700;
@@ -21,12 +26,6 @@
   font-size: 18px;
   line-height: 26px;
   letter-spacing: -0.2px;
-}
-
-.gallery-slider {
-  position: absolute;
-  right: 321px;
-  overflow: hidden;
 }
 
 .gallery-slider__first-row,
@@ -102,6 +101,57 @@
   margin-bottom: 10px;
 }
 
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header__left-side {
+  width: 301px;
+  height: 100px;
+  border-radius: 0px 0px 5px 5px;
+  background: #dddddd;
+  margin-right: 19px;
+}
+
+.header__right-side {
+  padding: 41px 0px 41px 80px;
+  width: 621px;
+  height: 100px;
+  border-radius: 0px 0px 5px 5px;
+  background: #dddddd;
+}
+
+.header__right-side-text {
+  color: white;
+  font-family: "Helvetica Neue", monospace;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.footer__content {
+  padding: 41px 0px 41px 80px;
+  width: 941px;
+  height: 100px;
+  border-radius: 0px 0px 5px 5px;
+  background: #dddddd;
+}
+
+.footer__content-text {
+  color: white;
+  font-family: "Helvetica Neue", monospace;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -109,13 +159,26 @@
           box-sizing: border-box;
 }
 
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .gallery {
-  margin-top: 100px;
+  margin: 60px 0px;
+  max-width: 940px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  position: relative;
 }

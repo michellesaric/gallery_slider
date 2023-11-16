@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header__left-side {
+  width: 301px;
+  height: 100px;
+  border-radius: 0px 0px 5px 5px;
+  background: $lightGray;
+  margin-right: 19px;
+}
+
+.header__right-side {
+  padding: 41px 0px 41px 80px;
+  width: 621px;
+  height: 100px;
+  border-radius: 0px 0px 5px 5px;
+  background: $lightGray;
+}
+
+.header__right-side-text {
+  color: $white;
+  font-family: $helveticaHeue;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

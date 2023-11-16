@@ -1,9 +1,10 @@
 .gallery-card {
-  width: 301px;
   background: white;
+  margin-left: 20px;
 }
 
 .gallery-card__title {
+  width: 301px;
   color: $blue;
   font-family: $sans;
   font-weight: 700;
