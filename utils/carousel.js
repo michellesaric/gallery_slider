@@ -1,85 +1,93 @@
-const firstRow = document.querySelector(".gallery-slider__first-row");
-const secondRow = document.querySelector(".gallery-slider__second-row-images");
+$(document).ready(function () {
+  const $firstRow = $(".gallery-slider__first-row");
+  const $secondRow = $(".gallery-slider__second-row-images");
+  const $leftArrow = $(".left-arrow-button");
+  const $rightArrow = $(".right-arrow-button");
 
-const leftArrow = document.querySelector(".left-arrow-button");
-const rightArrow = document.querySelector(".right-arrow-button");
+  let currentFirstRowIndex = 0;
+  let prevFirstRowIndex;
 
-let currentFirstRowIndex = 0;
-let prevFirstRowIndex;
+  let currentSecondRowIndex = 0;
+  let prevSecondRowIndex;
 
-let currentSecondRowIndex = 0;
-let prevSecondRowIndex;
+  const $firstRowImages = $(".first-row-image");
+  const $secondRowImages = $(".second-row-image");
 
-const firstRowImages = document.querySelectorAll(".first-row-image");
-const secondRowImages = document.querySelectorAll(".second-row-image");
+  const firstRowTotalImages = $firstRowImages.length;
+  const secondRowTotalImages = $secondRowImages.length;
 
-const firstRowTotalImages = Object.keys(firstRowImages).length;
-const secondRowTotalImages = Object.keys(secondRowImages).length;
+  let imageWidthFirstRow;
+  let imageWidthSecondRow;
 
-let imageWidthFirstRow;
-let imageWidthSecondRow;
+  let animationInProgress = false;
 
-rightArrow.addEventListener("click", () => {
-  firstRow.classList.add("sliding-transition");
-  secondRow.classList.add("sliding-transition");
+  $rightArrow.on("click", function () {
+    if (animationInProgress) return;
+    animationInProgress = true;
 
-  prevFirstRowIndex = currentFirstRowIndex;
-  currentFirstRowIndex = (currentFirstRowIndex + 1) % firstRowTotalImages;
+    $firstRow.addClass("sliding-transition");
+    $secondRow.addClass("sliding-transition");
 
-  prevSecondRowIndex = currentSecondRowIndex;
-  currentSecondRowIndex = (currentSecondRowIndex + 1) % secondRowTotalImages;
+    prevFirstRowIndex = currentFirstRowIndex;
+    currentFirstRowIndex = (currentFirstRowIndex + 1) % firstRowTotalImages;
 
-  imageWidthFirstRow = firstRowImages[prevFirstRowIndex].clientWidth;
-  imageWidthSecondRow = secondRowImages[prevSecondRowIndex].clientWidth;
+    prevSecondRowIndex = currentSecondRowIndex;
+    currentSecondRowIndex = (currentSecondRowIndex + 1) % secondRowTotalImages;
 
-  firstRow.style.transform = `translateX(-${imageWidthFirstRow}px)`;
-  secondRow.style.transform = `translateX(-${imageWidthSecondRow}px)`;
+    imageWidthFirstRow = $firstRowImages.eq(prevFirstRowIndex).width();
+    imageWidthSecondRow = $secondRowImages.eq(prevSecondRowIndex).width();
 
-  setTimeout(() => {
-    firstRow.appendChild(firstRowImages[prevFirstRowIndex]);
-    firstRow.classList.remove("sliding-transition");
-    firstRow.style.transform = "";
+    $firstRow.css("transform", "translateX(-" + imageWidthFirstRow + "px)");
+    $secondRow.css("transform", "translateX(-" + imageWidthSecondRow + "px)");
 
-    secondRow.appendChild(secondRowImages[prevSecondRowIndex]);
-    secondRow.classList.remove("sliding-transition");
-    secondRow.style.transform = "";
-  }, 500);
-});
+    $firstRowImages.eq(prevFirstRowIndex).fadeOut(500, function () {
+      $(this).appendTo($firstRow).fadeIn(500);
+    });
+    $secondRowImages.eq(prevSecondRowIndex).fadeOut(500, function () {
+      $(this).appendTo($secondRow).fadeIn(500);
+    });
 
-leftArrow.addEventListener("click", () => {
-  prevFirstRowIndex = currentFirstRowIndex;
-  currentFirstRowIndex =
-    (currentFirstRowIndex - 1 + firstRowTotalImages) % firstRowTotalImages;
+    setTimeout(function () {
+      $firstRow.removeClass("sliding-transition").css("transform", "");
+      $secondRow.removeClass("sliding-transition").css("transform", "");
 
-  prevSecondRowIndex = currentSecondRowIndex;
-  currentSecondRowIndex =
-    (currentSecondRowIndex - 1 + secondRowTotalImages) % secondRowTotalImages;
+      animationInProgress = false;
+    }, 500);
+  });
 
-  imageWidthFirstRow = firstRowImages[currentFirstRowIndex].clientWidth;
-  imageWidthSecondRow = secondRowImages[currentSecondRowIndex].clientWidth;
+  $leftArrow.on("click", function () {
+    if (animationInProgress) return;
+    animationInProgress = true;
 
-  firstRow.style.transform = `translateX(-${imageWidthFirstRow}px)`;
-  secondRow.style.transform = `translateX(-${imageWidthSecondRow}px)`;
+    prevFirstRowIndex = currentFirstRowIndex;
+    currentFirstRowIndex =
+      (currentFirstRowIndex - 1 + firstRowTotalImages) % firstRowTotalImages;
 
-  firstRow.insertBefore(
-    firstRowImages[currentFirstRowIndex],
-    firstRow.firstChild
-  );
-  secondRow.insertBefore(
-    secondRowImages[currentSecondRowIndex],
-    secondRow.firstChild
-  );
+    prevSecondRowIndex = currentSecondRowIndex;
+    currentSecondRowIndex =
+      (currentSecondRowIndex - 1 + secondRowTotalImages) % secondRowTotalImages;
 
-  setTimeout(() => {
-    firstRow.style.transform = "";
-    firstRow.classList.add("sliding-transition");
+    imageWidthFirstRow = $firstRowImages.eq(currentFirstRowIndex).width();
+    imageWidthSecondRow = $secondRowImages.eq(currentSecondRowIndex).width();
 
-    secondRow.style.transform = "";
-    secondRow.classList.add("sliding-transition");
-  }, 10);
+    $firstRow.css("transform", "translateX(-" + imageWidthFirstRow + "px)");
+    $secondRow.css("transform", "translateX(-" + imageWidthSecondRow + "px)");
 
-  setTimeout(() => {
-    firstRow.classList.remove("sliding-transition");
-    secondRow.classList.remove("sliding-transition");
-  }, 490);
+    $firstRow.prepend($firstRowImages.eq(currentFirstRowIndex)).fadeTo(500, 1);
+    $secondRow
+      .prepend($secondRowImages.eq(currentSecondRowIndex))
+      .fadeTo(500, 1);
+
+    setTimeout(function () {
+      $firstRow.css("transform", "").addClass("sliding-transition");
+      $secondRow.css("transform", "").addClass("sliding-transition");
+    }, 10);
+
+    setTimeout(function () {
+      $firstRow.removeClass("sliding-transition");
+      $secondRow.removeClass("sliding-transition");
+
+      animationInProgress = false;
+    }, 490);
+  });
 });
