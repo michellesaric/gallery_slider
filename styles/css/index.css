@@ -101,6 +101,26 @@
   margin-bottom: 10px;
 }
 
+.left-arrow {
+  background-image: url("../../assets/icons/arrow-gray-left.png");
+  height: 16px;
+  width: 10px;
+}
+
+.left-arrow-button:hover .left-arrow {
+  background-image: url("../../assets/icons/arrow-blue-left.png");
+}
+
+.right-arrow {
+  background: url("../../assets/icons/arrow-gray-right.png");
+  height: 16px;
+  width: 10px;
+}
+
+.right-arrow-button:hover .right-arrow {
+  background: url("../../assets/icons/arrow-blue-right.png");
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;

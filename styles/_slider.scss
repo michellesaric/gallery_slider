@@ -55,3 +55,27 @@
 .first-wrapper {
   margin-bottom: 10px;
 }
+
+.left-arrow {
+  background-image: url($grayLeft);
+  height: 16px;
+  width: 10px;
+}
+
+.left-arrow-button:hover {
+  .left-arrow {
+    background-image: url($blueLeft);
+  }
+}
+
+.right-arrow {
+  background: url($grayRight);
+  height: 16px;
+  width: 10px;
+}
+
+.right-arrow-button:hover {
+  .right-arrow {
+    background: url($blueRight);
+  }
+}
